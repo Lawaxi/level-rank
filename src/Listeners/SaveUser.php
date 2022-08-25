@@ -2,13 +2,27 @@
 
 namespace Lawaxi\LevelRanks\Listeners;
 
+use Flarum\Bus\Dispatcher;
 use Flarum\User\Event\Saving;
 use Illuminate\Support\Arr;
+use Lawaxi\LevelRanks\Command\Pay;
 use Lawaxi\LevelRanks\Events\VerificationChanged;
 use Lawaxi\LevelRanks\Theme\Theme;
 
 class SaveUser
 {
+    protected $events;
+
+    /**
+     * @param Dispatcher $events
+     */
+    public function __construct(Dispatcher $events)
+    {
+        $this->events = $events;
+    }
+
+
+
     public function handle(Saving $event)
     {
         $user = $event->user;
@@ -45,12 +59,17 @@ class SaveUser
         }
 
         if (isset($attributes['theme'])){
-            if(in_array($attributes['theme'],preg_split("/,/",$user->hastheme))
+            if(($actor->id === $user->id && in_array($attributes['theme'],preg_split("/,/",$user->hastheme)))
             || $actor->can('edit', $user)){
                 $user->theme = $attributes['theme'];
             }
         }
-
         $user->save();
+
+        if(isset($attributes['payAmount']) && $actor->id !== $user->id){
+            $this->events->dispatch(
+                new Pay($actor,$user,$attributes['payAmount']));
+        }
+
     }
 }

@@ -5,7 +5,6 @@ namespace Lawaxi\LevelRanks\Command;
 use Flarum\Foundation\DispatchEventsTrait;
 use Flarum\User\UserRepository;
 use Illuminate\Contracts\Events\Dispatcher;
-use Lawaxi\LevelRanks\StudentID\Command\UploadCard;
 
 class PayHandler
 {

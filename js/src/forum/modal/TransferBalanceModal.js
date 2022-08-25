@@ -3,13 +3,22 @@ import ItemList from 'flarum/common/utils/ItemList';
 import Stream from 'flarum/common/utils/Stream';
 import Button from 'flarum/forum/components/Button';
 import username from 'flarum/common/helpers/username';
+import doesHaveTheme from "../../common/theme/doesHaveTheme";
 
 export default class TransferBalanceModal extends Modal {
   static isDismissible = true;
 
-  target = this.attrs.target;
-  actor = this.attrs.actor;
+  target = null;
+  actor = null;
   amount = Stream(0);
+
+  oninit(vnode) {
+    super.oninit(vnode);
+
+    this.target = this.attrs.target;
+    this.actor = this.attrs.actor;
+  }
+
 
   className() {
     return 'TransferBalanceModal';
@@ -40,7 +49,7 @@ export default class TransferBalanceModal extends Modal {
 
     items.add(
       'submit',
-      <div className="Form-group">
+      <div className="Form-balanceTransfer">
         {Button.component(
           {
             className: 'Button Button--primary',
@@ -57,7 +66,9 @@ export default class TransferBalanceModal extends Modal {
   }
 
   onsubmit() {
-    const data = new FormData();
+    /*const data = new FormData();
+    data.append('target', this.target);
+    data.append('actor', this.actor);
     data.append('amount', this.amount());
 
     app
@@ -67,9 +78,13 @@ export default class TransferBalanceModal extends Modal {
         serialize: (raw) => raw,
         body: data,
       })
-      .then(this.success.bind(this), this.failure.bind(this));
+      .then(this.success.bind(this), this.failure.bind(this));*/
+
+    this.target.save({payAmount: this.amount()}, { errorHandler: this.onerror.bind(this) })
+      .then(() => window.location.reload(), this.loaded.bind(this));
   }
 
+  /*
   success(response) {
     app.store.pushPayload(response);
 
@@ -83,6 +98,6 @@ export default class TransferBalanceModal extends Modal {
     this.showAlert('error');
     this.loading = false;
     m.redraw();
-  }
+  }*/
 
 }

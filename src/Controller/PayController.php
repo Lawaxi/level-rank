@@ -7,7 +7,6 @@ use Flarum\Api\Serializer\UserSerializer;
 use Flarum\User\User;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Arr;
-use Lawaxi\LevelRanks\StudentID\Command\UploadCard;
 use Psr\Http\Message\ServerRequestInterface;
 use Tobscure\JsonApi\Document;
 
@@ -41,6 +40,6 @@ class PayController extends AbstractShowController
         $actor = $request->getAttribute('actor');
 
         return $this->bus->dispatch(
-            new UploadCard(User::findOrFail($target_id),$actor,$amount));
+            new Pay(User::findOrFail($target_id),$actor,$amount));
     }
 }

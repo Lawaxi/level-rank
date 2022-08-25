@@ -107,10 +107,10 @@ app.initializers.add('lawaxi-level-ranks', (app) => {
     if(app.session.user && app.session.user !== user) {
       items.add(
         'transferBalance',
-        <LinkButton onclick={() => app.modal.show(TransferBalanceModal, {target: user, actor: app.session.user})}
+        <Button class={'TButton'} onclick={() => app.modal.show(TransferBalanceModal, {target: user, actor: app.session.user})}
                     icon="fas fa-credit-card">
           {app.translator.trans('lawaxi-level-ranks.forum.settings.transferBalance')}
-        </LinkButton>,
+        </Button>,
         1
       );
     }
