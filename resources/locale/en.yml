@@ -20,6 +20,12 @@ lawaxi-level-ranks:
       studentID_confirm: 审核通过
     permission:
       view_studentID: 查看用户学号(学生卡)
+    studentID:
+      title: 学号认证审核
+      description: 待审核的学号认证列表
+      columns_image: 学生卡上传
+      columns_input: 输入学号
+      placeholder: 输入学号
   forum:
     userUtil:
       currentTheme: 当前主题

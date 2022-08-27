@@ -84,7 +84,6 @@ export default class CardConfirmationPage extends AdminPage {
     const columns = this.columns().toArray();
 
     return [
-      <p class="UserListPage-totalUsers">{app.translator.trans('core.admin.users.total_users', { count: this.userCount })}</p>,
       <section
         class={classList(['UserListPage-grid', this.isLoadingPage ? 'UserListPage-grid--loadingPage' : 'UserListPage-grid--loaded'])}
         style={{ '--columns': columns.length }}
@@ -197,7 +196,7 @@ export default class CardConfirmationPage extends AdminPage {
     columns.add(
       'studentID',
       {
-        name: '学生卡上传',
+        name: app.translator.trans('lawaxi-level-ranks.admin.studentID.columns_image'),
         content: (user: User) => (
           <img class={"CardImage"} src={user.studentID()}/>
         ),
@@ -211,11 +210,11 @@ export default class CardConfirmationPage extends AdminPage {
     columns.add(
       'studentID_input',
       {
-        name: '输入学号',
+        name: app.translator.trans('lawaxi-level-ranks.admin.studentID.columns_input'),
         content: (user: User) => (
           <input
             className="FormControl"
-            placeholder={'输入学号'}
+            placeholder={app.translator.trans('lawaxi-level-ranks.admin.studentID.placeholder')}
             bidi={this.studentID}
             onfocusout = {() => {
               user.save({is_studentID_confirmed: this.studentID}, { errorHandler: this.onerror.bind(this) });
@@ -231,10 +230,10 @@ export default class CardConfirmationPage extends AdminPage {
 
   headerInfo() {
     return {
-      className: 'UserListPage',
+      className: 'CardConfirmationPage',
       icon: 'fas fa-users',
-      title: app.translator.trans('core.admin.users.title'),
-      description: app.translator.trans('core.admin.users.description'),
+      title: app.translator.trans('lawaxi-level-ranks.admin.studentID.title'),
+      description: app.translator.trans('lawaxi-level-ranks.admin.studentID.description'),
     };
   }
 
