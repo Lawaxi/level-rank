@@ -256,7 +256,8 @@ export default class CardConfirmationPage extends AdminPage {
     app.store
       .find<User[]>('users', {
         filter: {
-          is_studentID_confirmed: 0,
+          studentID: 'shit',
+          is_studentID_confirmed: 'fuck',
         },
         page: {
           limit: this.numPerPage,

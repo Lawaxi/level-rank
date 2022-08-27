@@ -57,7 +57,7 @@ app.initializers.add('lawaxi-level-ranks', () => {
     items.add(
       'card_confirmation',
       <LinkButton href={app.route('card')} icon="fas fa-users" title={'confirm'}>
-        {'管理'}
+        {'学生卡认证审核'}
       </LinkButton>,
       48
     );

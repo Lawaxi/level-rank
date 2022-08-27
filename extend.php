@@ -7,6 +7,7 @@ use Flarum\Extend;
 use Flarum\Foundation\Paths;
 use Flarum\Http\UrlGenerator;
 use Flarum\User\Event\Saving;
+use Flarum\User\Filter\UserFilterer;
 use Flarum\User\User;
 use Lawaxi\LevelRanks\Controller\PayController;
 use Lawaxi\LevelRanks\Events\VerificationChanged;
@@ -17,6 +18,8 @@ use Lawaxi\LevelRanks\Serializers\AddVerificationAttribute;
 use Lawaxi\LevelRanks\StudentID\Access\RevokeAccessFromSuspendedUsers;
 use Lawaxi\LevelRanks\StudentID\Access\UserPolicy;
 use Lawaxi\LevelRanks\StudentID\Controller\UploadCardController;
+use Lawaxi\LevelRanks\StudentID\Filter\StudentIDConfirmedFilter;
+use Lawaxi\LevelRanks\StudentID\Filter\StudentIDFilter;
 use Lawaxi\LevelRanks\StudentID\Listeners\CardRelationship;
 use Lawaxi\LevelRanks\StudentID\Listeners\SaveCardConfirmation;
 use Lawaxi\LevelRanks\Theme\Controllers\CurrentThemeController;
@@ -88,4 +91,8 @@ return [
     //View
     (new Extend\View())
         ->namespace('lawaxi-level-ranks', __DIR__.'/views'),
+
+    (new Extend\Filter(UserFilterer::class))
+        ->addFilter(StudentIDConfirmedFilter::class)
+        ->addFilter(StudentIDFilter::class),
 ];
