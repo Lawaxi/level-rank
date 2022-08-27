@@ -1,6 +1,11 @@
 import app from 'flarum/admin/app';
+import { extend } from 'flarum/common/extend';
+import AdminNav from "flarum/admin/components/AdminNav";
+import LinkButton from "flarum/common/components/LinkButton";
+
 import withAttr from 'flarum/common/utils/withAttr';
 import formatBytes from '../common/formatBytes';
+import CardConfirmationPage from "./CardConfirmationPage";
 
 app.initializers.add('lawaxi-level-ranks', () => {
 
@@ -33,6 +38,7 @@ app.initializers.add('lawaxi-level-ranks', () => {
           </div>
         );
       })
+
       .registerPermission(
         {
           icon: 'fas fa-image',
@@ -42,28 +48,19 @@ app.initializers.add('lawaxi-level-ranks', () => {
         'moderate'
       );
 
-  /*extendEditUserModal(app);
+  app.routes["card"] = {
+    path: "/card",
+    component: CardConfirmationPage,
+  };
 
-  extend(UserListPage.prototype, 'columns', function (columns) {
-
-    columns.add(
-      'studentIDConfirmation',
-      {
-        name: app.translator.trans('lawaxi-level-ranks.forum.settings.sc_admin_title'),
-        content: (user) => {
-          return specialButton(user) ? app.translator.trans('lawaxi-level-ranks.forum.settings.sc_admin') : '';
-        },
-      },
-      -100
+  extend(AdminNav.prototype, 'items', function (items) {
+    items.add(
+      'card_confirmation',
+      <LinkButton href={app.route('card')} icon="fas fa-users" title={'confirm'}>
+        {'管理'}
+      </LinkButton>,
+      48
     );
   });
 
-  function specialButton(user){
-    if(!user.studentID())
-      return false;
-    else if((user.is_studentID_confirmed() || 0) === 0)
-      return true;
-    return false;
-  }*/
-
-});
+},100);

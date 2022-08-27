@@ -27,7 +27,7 @@
     },
     "extra": {
         "flarum-extension": {
-            "title": "Level Ranks",
+            "title": "六边形社区",
             "category": "feature",
             "icon": {
                 "name": "fas fa-percent",
