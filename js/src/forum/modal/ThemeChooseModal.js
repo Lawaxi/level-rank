@@ -53,8 +53,8 @@ export default class ThemeChooseModal extends Modal {
                   },
                 },
                 doesHaveTheme(theme.id(),app.session.user)?
-                  app.translator.trans('lawaxi-level-ranks.forum.theme.showFormat2', {title: getThemeTitle(theme), price: theme.price()}) :
-                  app.translator.trans('lawaxi-level-ranks.forum.theme.showFormat1', {title: getThemeTitle(theme), price: theme.price()})
+                  app.translator.trans('lawaxi-level-ranks.forum.theme.showFormat2', {title: getThemeTitle(theme), price: switchPrice(theme.price())}) :
+                  app.translator.trans('lawaxi-level-ranks.forum.theme.showFormat1', {title: getThemeTitle(theme), price: switchPrice(theme.price())})
               ));
             }
             )}
@@ -84,13 +84,13 @@ export default class ThemeChooseModal extends Modal {
 function switchPrice(price){
 
   if(price >= 0)
-    return price+'元';
+    return price+'六币';
   if(price === -2)
     return '一周目纪念'
   if(price === -3)
     return '二周年纪念';
   if(price === -4)
-    return '2023迎新'
+    return '2023迎新';
   else
     return '非卖';
 }

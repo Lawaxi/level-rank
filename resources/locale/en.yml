@@ -53,7 +53,7 @@ lawaxi-level-ranks:
       top: 您可以通过本功能进行社区主题的切换。社区全部主题按序排列，绿色为您拥有的主题，点击穿戴，其他按钮点击申请购买(自动扣费)。
       bottom: '当前的主题功能仅限头像框，未来的更新不会影响您主题的所有权，功能只会更好不会更坏。购买方式：向下方收款码转账，备注您的ID，非优惠期人民币:六币汇率1:10，站长将人工为您服务，人工兑汇，取整计算。您的ID: {id}，六币余额: {balance}.'
     theme:
-      showFormat1: '{title}({price}六币)'
+      showFormat1: '{title}({price})'
       showFormat2: '{title}'
       defaultTitle: 未知主题{id}
       defaultIcon: fas fa-leaf
