@@ -7,7 +7,6 @@ import NotificationGrid from 'flarum/forum/components/NotificationGrid';
 import UserPage from 'flarum/forum/components/UserPage';
 import SettingsPage from 'flarum/forum/components/SettingsPage';
 import UserCard from 'flarum/forum/components/UserCard';
-import LinkButton from 'flarum/common/components/LinkButton';
 import FramePostUser from "./components/FramePostUser";
 import Themes from "../common/models/Themes";
 import HeaderSecondary from 'flarum/components/HeaderSecondary';

@@ -66,7 +66,7 @@ export default class StudentIDEditorModal extends Modal {
       'upload',
       <Button icon="fas fa-upload" className="Button" onclick={this.openPicker.bind(this)}>
         {app.translator.trans('core.forum.user.avatar_upload_button')}
-      </Button>
+      </Button>,50
     );
     return items;
   }

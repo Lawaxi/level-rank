@@ -24,11 +24,18 @@ export default class ThemeChooseModal extends Modal {
     const themes = getAllThemes();
 
     items.add(
-      'themelist',
+      'info1',
       <div>
         <label style="display: block;">
           {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.top', {id: app.session.user.id() , balance: app.session.user.balance()})}
         </label>
+      </div>,100
+    );
+
+
+    items.add(
+      'themelist',
+      <div>
         {
           themes
             .map((theme) => {
@@ -51,12 +58,20 @@ export default class ThemeChooseModal extends Modal {
               ));
             }
             )}
-
+      </div>,90);
+    items.add(
+      'info2',
+      <div>
         <label style="display: block; padding-top: 50px; padding-bottom: 10px;">
           {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.bottom', {id: app.session.user.id(), balance: app.session.user.balance()})}
         </label>
-        <img src={app.forum.attribute("lawaxi-level-ranks.payCode")} />
-      </div>,0);
+      </div>,80);
+
+    items.add(
+      'info3',
+      <div>
+        <img src={app.forum.attribute("lawaxi-level-ranks.payCode")} /></div>,70
+    )
 
     return items;
   }
@@ -67,14 +82,17 @@ export default class ThemeChooseModal extends Modal {
 }
 
 function switchPrice(price){
-  if(price === -1)
-    return '非卖'
+
+  if(price >= 0)
+    return price+'元';
   if(price === -2)
     return '一周目纪念'
   if(price === -3)
     return '二周年纪念';
+  if(price === -4)
+    return '2023迎新'
   else
-    return price+'元';
+    return '非卖';
 }
 
 function getThemeTitle(theme){
