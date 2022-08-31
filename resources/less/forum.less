@@ -1,3 +1,41 @@
+//站点优化
+.FormControl_Image {
+  --transition: border-color .15s,background .15s;
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--control-color);
+  background-color: var(--control-bg);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  -webkit-appearance: none;
+}
+
+.CoverEditor-card {
+  height: 280px;
+}
+
+WaitingConfirmation {
+  color: #d83e3e;
+}
+
+.Alert-body {
+  a {
+    cursor: pointer;
+    color: var(--link-color);
+    text-decoration: none;
+  }
+}
+
+.UserList {
+  &-editModalBtn_special {
+    color: red;
+  }
+}
+
+//经验等级
 .PostUser-level {
     float: left;
     position: relative;
@@ -48,6 +86,7 @@ div.PostUser-bar--empty {
     }
 }
 
+//认证
 .UserVerification {
   text-align: left;
   font-weight: bold;
@@ -62,6 +101,7 @@ div.PostUser-bar--empty {
   padding: 2px 10px 1px;
 }
 
+//头像框
 .PostUser-Frame {
   display: inline-flex;
   float: left;
@@ -115,17 +155,18 @@ div.PostUser-bar--empty {
   display: inline-flex;
 }
 
-//主题功能
 
+
+//切换主题
 .Badge--theme {
   margin: -3px 3px -3px 0;
   vertical-align: 1px;
 }
 
 @media (max-width: 767.98px) {
-.Button-label {
-  margin-left: 3px;
-}
+  .Button-label {
+    margin-left: 3px;
+  }
 }
 
 .ThemeChooseModal {
@@ -140,42 +181,6 @@ div.PostUser-bar--empty {
   }
 }
 
-.FormControl_Image {
-  --transition: border-color .15s,background .15s;
-  display: block;
-  width: 100%;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--control-color);
-  background-color: var(--control-bg);
-  border: 2px solid transparent;
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  -webkit-appearance: none;
-}
-
-.CoverEditor-card {
-  height: 280px;
-}
-
-WaitingConfirmation {
-  color: #d83e3e;
-}
-
-.Alert-body {
-  a {
-    cursor: pointer;
-    color: var(--link-color);
-    text-decoration: none;
-  }
-}
-
-.UserList {
-  &-editModalBtn_special {
-    color: red;
-  }
-}
-
 .OwnedTheme {
   color: #00c100;
 }
@@ -184,7 +189,26 @@ WaitingConfirmation {
   color: #ff9300;
 }
 
-//转账图案
+
+.ThemeChooseBalanceGrid {
+  background: var(--body-bg);
+  border-radius: var(--border-radius);
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.ThemeChooseInfo1{
+  display: block;
+}
+.ThemeChooseInfo2{
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+//转账
 @media (min-width: 767.98px) {
   .TButton {
     background: none!important;
@@ -201,5 +225,6 @@ WaitingConfirmation {
   margin-bottom: 0 !important;
   margin-top: 15px
 }
+
 
 

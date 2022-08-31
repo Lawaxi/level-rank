@@ -26,7 +26,7 @@ export default class ThemeChooseModal extends Modal {
     items.add(
       'info1',
       <div>
-        <label style="display: block;">
+        <label class={"ThemeChooseInfo1"}>
           {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.top', {id: app.session.user.id() , balance: app.session.user.balance()})}
         </label>
       </div>,100
@@ -62,15 +62,39 @@ export default class ThemeChooseModal extends Modal {
     items.add(
       'info2',
       <div>
-        <label style="display: block; padding-top: 50px; padding-bottom: 10px;">
+        <label class={"ThemeChooseInfo2"}>
           {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.bottom', {id: app.session.user.id(), balance: app.session.user.balance()})}
         </label>
       </div>,80);
 
     items.add(
       'info3',
+      <div><table>
+        <thead>
+          <tr>
+            <th class="ThemeChooseBalanceGrid">
+              <i aria-hidden="true" class="icon fas fa-fingerprint " />
+              {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.info_id')}
+            </th>
+            <th class="NotificationGrid-groupToggle">
+              <i aria-hidden="true" class="icon far fa-wallet "/>
+              {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.info_balance')}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{app.session.user.id()}</td>
+            <td>{app.session.user.balance()}</td>
+          </tr>
+        </tbody>
+      </table></div>,70
+    )
+
+    items.add(
+      'qrCode',
       <div>
-        <img src={app.forum.attribute("lawaxi-level-ranks.payCode")} /></div>,70
+        <img src={app.forum.attribute("lawaxi-level-ranks.payCode")} /></div>,60
     )
 
     return items;

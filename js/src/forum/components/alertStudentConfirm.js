@@ -13,7 +13,7 @@ export default function alertStudentConfirm(app) {
   class ContainedAlert extends Alert {
     view(vnode) {
       const vdom = super.view(vnode);
-      return {...vdom, children: vdom.children};
+      return { ...vdom, children: [<div className="container">{vdom.children}</div>] };
     }
   }
 
