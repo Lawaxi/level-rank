@@ -69,14 +69,14 @@ export default class ThemeChooseModal extends Modal {
 
     items.add(
       'info3',
-      <div><table>
+      <div><table class="ThemeChooseBalanceGrid">
         <thead>
           <tr>
-            <th class="ThemeChooseBalanceGrid">
+            <th class="ThemeChooseBalanceGrid-groupToggle">
               <i aria-hidden="true" class="icon fas fa-fingerprint " />
               {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.info_id')}
             </th>
-            <th class="NotificationGrid-groupToggle">
+            <th class="ThemeChooseBalanceGrid-groupToggle">
               <i aria-hidden="true" class="icon far fa-wallet "/>
               {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.info_balance')}
             </th>
