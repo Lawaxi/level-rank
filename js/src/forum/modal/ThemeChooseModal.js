@@ -77,7 +77,7 @@ export default class ThemeChooseModal extends Modal {
               {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.info_id')}
             </th>
             <th class="ThemeChooseBalanceGrid-groupToggle">
-              <i aria-hidden="true" class="icon far fa-wallet "/>
+              <i aria-hidden="true" class="icon fas fa-wallet "/>
               {app.translator.trans('lawaxi-level-ranks.forum.chooseModal.info_balance')}
             </th>
           </tr>
