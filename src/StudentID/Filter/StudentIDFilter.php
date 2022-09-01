@@ -14,6 +14,6 @@ class StudentIDFilter implements FilterInterface
 
     public function filter(FilterState $filterState, string $filterValue, bool $negate)
     {
-        $filterState->getQuery()->where('users.studentID', $negate ? '!=': '==', null);
+        $filterState->getQuery()->where('users.studentID', $negate ? '=': '!=', null);
     }
 }

@@ -9,6 +9,7 @@ import ItemList from 'flarum/common/utils/ItemList';
 import classList from 'flarum/common/utils/classList';
 import extractText from 'flarum/common/utils/extractText';
 import AdminPage from 'flarum/admin/components/AdminPage';
+import Stream from 'flarum/common/utils/Stream';
 
 type ColumnData = {
   /**
@@ -43,6 +44,7 @@ export default class CardConfirmationPage extends AdminPage {
    * if installed.
    */
   userCount: number = app.data.modelStatistics.users.total;
+  private studentID: any;
 
   /**
    * Get total number of user pages.
@@ -205,7 +207,7 @@ export default class CardConfirmationPage extends AdminPage {
     );
 
 
-    this.studentID = 0;
+    this.studentID = Stream(0);
 
     columns.add(
       'studentID_input',
@@ -217,7 +219,7 @@ export default class CardConfirmationPage extends AdminPage {
             placeholder={app.translator.trans('lawaxi-level-ranks.admin.studentID.placeholder')}
             bidi={this.studentID}
             onfocusout = {() => {
-              user.save({is_studentID_confirmed: this.studentID}, { errorHandler: this.onerror.bind(this) });
+              user.save({is_studentID_confirmed: this.studentID()});
             }}
           />
         ),

@@ -14,6 +14,6 @@ class StudentIDConfirmedFilter implements FilterInterface
 
     public function filter(FilterState $filterState, string $filterValue, bool $negate)
     {
-        $filterState->getQuery()->where('is_studentID_confirmed', $negate ? '==': '!=', null);
+        $filterState->getQuery()->where('is_studentID_confirmed', $negate ? '!=': '=', 0);
     }
 }

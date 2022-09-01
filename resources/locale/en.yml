@@ -22,7 +22,7 @@ lawaxi-level-ranks:
       view_studentID: 查看用户学号(学生卡)
     studentID:
       title: 学号认证审核
-      description: 待审核的学号认证列表
+      description: 待审核的学号认证列表，在输入框中输入后抬笔自动上传
       columns_image: 学生卡上传
       columns_input: 输入学号
       placeholder: 输入学号
