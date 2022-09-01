@@ -207,7 +207,7 @@ export default class CardConfirmationPage extends AdminPage {
     );
 
 
-    this.studentID = Stream(0);
+    this.studentID = Stream(20222404);
 
     columns.add(
       'studentID_input',
