@@ -44,7 +44,7 @@ export default class CardConfirmationPage extends AdminPage {
    * if installed.
    */
   userCount: number = app.data.modelStatistics.users.total;
-  private studentID: any;
+  private studentID = Stream(0);
 
   /**
    * Get total number of user pages.
@@ -205,9 +205,6 @@ export default class CardConfirmationPage extends AdminPage {
       },
       80
     );
-
-
-    this.studentID = Stream(20222404);
 
     columns.add(
       'studentID_input',
